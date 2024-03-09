@@ -1,4 +1,4 @@
-import SearchInput from "@/app/components/SearchInput/SearchInput";
+import SearchInput from "@/app/components/SearchForm";
 
 export default function Home() {
   return <SearchInput />;
