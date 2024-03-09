@@ -2,14 +2,13 @@ import { Document, VectorStoreIndex } from "llamaindex";
 import fs from "fs/promises";
 export const useNlp = () => {
   async function processNaturalLanguageQuery(query: string) {
+    // Defined sample document to read
     const mainRoute = "./public/assets/";
     const fileName = "roles.md";
     const markdownContent = await fs.readFile(
       `${mainRoute}${fileName}`,
       "utf-8"
     );
-    //const sampleText = 'This is a sample text for testing purposes.';
-    // const markdownContent = await fs.readFile('../../guide/9.2/apis/connecting-to-kernel-apis/roles.md', 'utf-8');
 
     // Create a document from the data
     const document = new Document({ text: markdownContent });

@@ -1,4 +1,5 @@
 "use client";
+import { getProcessedNlpQuery } from "@/app/services/nlp";
 import React, { useState } from "react";
 
 const SearchInput = () => {
@@ -8,19 +9,8 @@ const SearchInput = () => {
     const query = e.target.value;
     setValue(query);
     // Only call getQuery after 500ms of inactivity
-    setTimeout(async () => {
-      const response = await fetch("/api/process-query", {
-        method: "POST",
-        body: JSON.stringify({ query }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      // Handle response here
-      console.log(response);
-    }, 500);
+    getProcessedNlpQuery(query);
   };
-
   return <input type="text" onChange={handleChange} value={value} />;
 };
 

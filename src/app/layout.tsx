@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "NLP",
-  description: "Natural Language proccessor test to read a file",
+  description: "Natural Language processor to read a file",
 };
 
 export default function RootLayout({
