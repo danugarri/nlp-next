@@ -1,5 +1,5 @@
-import SearchInput from "@/app/components/SearchForm";
+import SearchForm from "@/app/components/SearchForm";
 
 export default function Home() {
-  return <SearchInput />;
+  return <SearchForm />;
 }
