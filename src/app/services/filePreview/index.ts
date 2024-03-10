@@ -1,4 +1,4 @@
-export const getFilePreview = async () => {
+export const getFilePreview = async (): Promise<{ result: string }> => {
   const response = await fetch('/api/filePreview/', {
     headers: {
       'Content-Type': 'application/json',
