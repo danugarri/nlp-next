@@ -1,5 +1,6 @@
 import { Document, VectorStoreIndex } from 'llamaindex';
 import fs from 'fs/promises';
+
 export const useNlp = () => {
   async function processNaturalLanguageQuery(query: string) {
     // Defined sample document to read

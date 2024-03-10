@@ -7,7 +7,7 @@ const SearchForm = ({ handleSubmit, handleChange, query }: SearchFormProps) => {
   return (
     <form onSubmit={handleSubmit} className={styles['form-container']}>
       <label htmlFor="nlp-input">Ask a question</label>
-      <input type="text" onChange={handleChange} value={query} />
+      <input type="text" onChange={handleChange} value={query} className={styles['input-container']} />
       <input type="submit" />
     </form>
   );
