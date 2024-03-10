@@ -3,7 +3,7 @@ import { DisplayPreviewProps } from './filePreview.types';
 import { getFilePreview } from '@/app/services/filePreview';
 import BasicModal from '../BasicModal';
 
-const FilePreview = ({ displayPreview }: DisplayPreviewProps) => {
+const FilePreview = ({ displayPreview, updateDisplayPreview }: DisplayPreviewProps) => {
   const [fileContent, setFileContent] = useState<string>('');
   useEffect(() => {
     const updateFileContent = async () => {
@@ -11,9 +11,9 @@ const FilePreview = ({ displayPreview }: DisplayPreviewProps) => {
       setFileContent(content.result);
     };
     updateFileContent();
-  }, [displayPreview]);
+  }, []);
 
-  return displayPreview ? <BasicModal fileContent={fileContent} /> : <></>;
+  return displayPreview ? <BasicModal fileContent={fileContent} updateDisplayPreview={updateDisplayPreview} /> : <></>;
 };
 
 export default FilePreview;

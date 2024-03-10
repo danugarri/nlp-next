@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
+import { BasicModalProps } from './basicModal.types';
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -15,9 +16,12 @@ const style = {
   p: 4,
 };
 
-export default function BasicModal({ fileContent }: { fileContent: string }) {
+export default function BasicModal({ fileContent, updateDisplayPreview }: BasicModalProps) {
   const [open, setOpen] = useState(true);
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+    updateDisplayPreview();
+  };
 
   return (
     <div>
@@ -27,7 +31,10 @@ export default function BasicModal({ fileContent }: { fileContent: string }) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>{fileContent}</Box>
+        <Box sx={style}>
+          <Button onClick={handleClose}>X</Button>
+          {fileContent}
+        </Box>
       </Modal>
     </div>
   );

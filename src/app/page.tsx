@@ -30,7 +30,7 @@ export default function Home() {
         updateDisplayPreview={updateDisplayPreview}
       />
       <FeedBack queryResponse={queryResponse} />
-      <FilePreview displayPreview={displayPreview} />
+      <FilePreview displayPreview={displayPreview} updateDisplayPreview={updateDisplayPreview} />
     </>
   );
 }
