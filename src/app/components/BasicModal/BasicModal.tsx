@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import { BasicModalProps } from './basicModal.types';
+import styles from './BasicModal.module.css';
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -14,6 +15,7 @@ const style = {
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
+  padding: '3rem',
 };
 
 export default function BasicModal({ fileContent, updateDisplayPreview }: BasicModalProps) {
@@ -32,8 +34,10 @@ export default function BasicModal({ fileContent, updateDisplayPreview }: BasicM
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Button onClick={handleClose}>X</Button>
           {fileContent}
+          <Button color="error" style={{ position: 'absolute', right: '1px', top: '2px' }} onClick={handleClose}>
+            X
+          </Button>
         </Box>
       </Modal>
     </div>
