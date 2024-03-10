@@ -8,7 +8,7 @@ export default function Home() {
   const [query, setQuery] = useState('');
   const [queryResponse, setQueryResponse] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value;
     setQuery(value);
   };

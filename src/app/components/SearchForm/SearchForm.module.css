@@ -1,16 +1,35 @@
-.form-container {
+.search-form-container {
   background-color: rgb(236, 187, 80);
   display: flex;
   flex-direction: column;
   width: fit-content;
   padding: 1rem;
   align-items: center;
-  gap: 0.2rem;
+  gap: 0.6rem;
   border-radius: 10px;
   border: 1px solid grey;
-  margin: 3rem auto
+  margin: 3rem auto;
+  font-size: 2rem;
 }
 
-.input-container {
+.search-form-input-container {
   width: 60vw;
+  font-size: 1.5rem;
+  height: max-content;
+  overflow-y: hidden;
+  font-family: serif;
+  font-style: italic;
+  text-decoration: none;
+}
+
+.search-form-submit {
+  background-color: rgb(149, 151, 167);
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 0.625rem;
+  padding: 0.625rem;
+}
+
+.search-form-submit:hover {
+  background-color: rgb(177, 180, 199);
 }
