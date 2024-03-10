@@ -1,9 +1,7 @@
+import processNaturalLanguageQuery from '@/utils/nlp';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { useNlp } from '@/hooks/useNlp';
 
 async function processQuery(req: NextApiRequest, res: NextApiResponse) {
-  const { processNaturalLanguageQuery } = useNlp();
-
   if (req.method === 'POST') {
     const { query } = req.body;
     const result = await processNaturalLanguageQuery(query);

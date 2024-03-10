@@ -33,3 +33,11 @@
 .search-form-submit:hover {
   background-color: rgb(177, 180, 199);
 }
+
+.search-form-buttons {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  gap: 10px
+}

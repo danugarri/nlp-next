@@ -4,7 +4,7 @@ import styles from './SearchForm.module.css';
 import { SearchFormProps } from './searchForm.types';
 import useAutosizeTextArea from '@/hooks/useAutosizeTextArea';
 
-const SearchForm = ({ handleSubmit, handleChange, query }: SearchFormProps) => {
+const SearchForm = ({ handleSubmit, handleChange, updateDisplayPreview, query }: SearchFormProps) => {
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   useAutosizeTextArea(textAreaRef.current, query);
 
@@ -17,7 +17,15 @@ const SearchForm = ({ handleSubmit, handleChange, query }: SearchFormProps) => {
         value={query}
         className={styles['search-form-input-container']}
       />
-      <input type="submit" value="Send" className={styles['search-form-submit']} />
+      <section className={styles['search-form-buttons']}>
+        <input type="submit" value="Send" className={styles['search-form-submit']} />
+        <input
+          onClick={updateDisplayPreview}
+          type="button"
+          value="View file"
+          className={styles['search-form-submit']}
+        />
+      </section>
     </form>
   );
 };
