@@ -3,10 +3,9 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import { BasicModalProps } from './basicModal.types';
-import styles from './BasicModal.module.css';
 
 const style = {
-  position: 'absolute' as 'absolute',
+  position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
@@ -16,6 +15,7 @@ const style = {
   boxShadow: 24,
   p: 4,
   padding: '3rem',
+  wordBreak: 'break-all',
 };
 
 export default function BasicModal({ fileContent, updateDisplayPreview }: BasicModalProps) {
