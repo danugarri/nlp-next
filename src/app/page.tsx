@@ -19,6 +19,10 @@ export default function Home() {
     const response = await getProcessedNlpQuery(query);
     setQueryResponse(response.result);
   };
+  const clearQuery = () => {
+    setQuery('');
+    setQueryResponse('');
+  };
   const updateDisplayPreview = () => setDisplayPreview(!displayPreview);
 
   return (

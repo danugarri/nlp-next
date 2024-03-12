@@ -35,7 +35,12 @@ export default function BasicModal({ fileContent, updateDisplayPreview }: BasicM
       >
         <Box sx={style}>
           {fileContent}
-          <Button color="error" style={{ position: 'absolute', right: '1px', top: '2px' }} onClick={handleClose}>
+          <Button
+            variant="contained"
+            color="error"
+            style={{ position: 'absolute', right: '1px', top: '2px' }}
+            onClick={handleClose}
+          >
             X
           </Button>
         </Box>
