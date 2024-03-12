@@ -7,8 +7,12 @@ const FilePreview = ({ displayPreview, updateDisplayPreview }: DisplayPreviewPro
   const [fileContent, setFileContent] = useState<string>('');
   useEffect(() => {
     const updateFileContent = async () => {
-      const content = await getFilePreview();
-      setFileContent(content.result);
+      try {
+        const content = await getFilePreview();
+        setFileContent(content.result);
+      } catch (e) {
+        throw new Error('Error when getting preview');
+      }
     };
     updateFileContent();
   }, []);
