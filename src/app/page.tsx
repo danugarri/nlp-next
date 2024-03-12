@@ -33,7 +33,7 @@ export default function Home() {
         query={query}
         updateDisplayPreview={updateDisplayPreview}
       />
-      <FeedBack queryResponse={queryResponse} />
+      <FeedBack queryResponse={queryResponse} clearQuery={clearQuery} />
       <FilePreview displayPreview={displayPreview} updateDisplayPreview={updateDisplayPreview} />
     </>
   );
