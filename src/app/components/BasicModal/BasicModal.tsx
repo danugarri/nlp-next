@@ -16,6 +16,8 @@ const style = {
   p: 4,
   padding: '3rem',
   wordBreak: 'break-all',
+  overflowY: 'scroll',
+  maxHeight: '60vh',
 };
 
 export default function BasicModal({ fileContent, updateDisplayPreview }: BasicModalProps) {
