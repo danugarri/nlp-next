@@ -7,6 +7,7 @@ import useAutosizeTextArea from '@/hooks/useAutosizeTextArea';
 const SearchForm = ({ handleSubmit, handleChange, updateDisplayPreview, query }: SearchFormProps) => {
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   useAutosizeTextArea(textAreaRef.current, query);
+  const isQuerying = query.length > 2;
 
   return (
     <form onSubmit={handleSubmit} className={styles['search-form-container']}>
@@ -18,7 +19,7 @@ const SearchForm = ({ handleSubmit, handleChange, updateDisplayPreview, query }:
         className={styles['search-form-input-container']}
       />
       <section className={styles['search-form-buttons']}>
-        <input type="submit" value="Send" className={styles['search-form-submit']} />
+        <input disabled={!isQuerying} type="submit" value="Send" className={styles['search-form-submit']} />
         <input
           onClick={updateDisplayPreview}
           type="button"
