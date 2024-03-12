@@ -3,11 +3,13 @@ import SearchForm from '@/app/components/SearchForm';
 import { useState } from 'react';
 import { getProcessedNlpQuery } from './services/nlp';
 import FeedBack from './components/FeedBack/FeedBack';
-import FilePreview from './components/FilePreview/FilePreview';
+import FilePreview from './components/FilePreview/';
+import Spinner from './components/Spinner/';
 
 export default function Home() {
   const [query, setQuery] = useState('');
   const [queryResponse, setQueryResponse] = useState('');
+  const [isQuerying, setIsQuerying] = useState(false);
   const [displayPreview, setDisplayPreview] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -16,8 +18,15 @@ export default function Home() {
   };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const response = await getProcessedNlpQuery(query);
-    setQueryResponse(response.result);
+    setIsQuerying(true);
+    try {
+      const response = await getProcessedNlpQuery(query);
+      setQueryResponse(response.result);
+    } catch (e) {
+      throw new Error('Error when querying');
+    } finally {
+      setIsQuerying(false);
+    }
   };
   const clearQuery = () => {
     setQuery('');
@@ -33,7 +42,7 @@ export default function Home() {
         query={query}
         updateDisplayPreview={updateDisplayPreview}
       />
-      <FeedBack queryResponse={queryResponse} clearQuery={clearQuery} />
+      {isQuerying ? <Spinner /> : <FeedBack queryResponse={queryResponse} clearQuery={clearQuery} />}
       <FilePreview displayPreview={displayPreview} updateDisplayPreview={updateDisplayPreview} />
     </>
   );
