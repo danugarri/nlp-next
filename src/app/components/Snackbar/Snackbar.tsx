@@ -3,7 +3,7 @@ import MuiSnackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import { SnackbarProps } from './snackbar.types';
 
-export default function Snackbar({ message }: SnackbarProps) {
+export default function Snackbar({ message, clearError }: SnackbarProps) {
   const [open, setOpen] = useState(false);
 
   const handleClick = () => {
@@ -19,6 +19,7 @@ export default function Snackbar({ message }: SnackbarProps) {
     }
 
     setOpen(false);
+    clearError();
   };
 
   return (

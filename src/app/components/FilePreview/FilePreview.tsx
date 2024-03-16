@@ -12,6 +12,8 @@ const FilePreview = ({
   const [fileContent, setFileContent] = useState<string>();
   const [error, setError] = useState<FetchingError>();
 
+  const clearError = () => setError(undefined);
+
   useEffect(() => {
     const updateFileContent = async () => {
       try {
@@ -29,17 +31,13 @@ const FilePreview = ({
     }
   }, [displayPreview, fileContent, updateDisplayPreview]);
 
-  return displayPreview ? (
-    fileContent ? (
-      <BasicModal
-        fileContent={fileContent}
-        updateDisplayPreview={updateDisplayPreview}
-      />
-    ) : error ? (
-      <Snackbar message={error.message} />
-    ) : (
-      <></>
-    )
+  return displayPreview && fileContent ? (
+    <BasicModal
+      fileContent={fileContent}
+      updateDisplayPreview={updateDisplayPreview}
+    />
+  ) : error ? (
+    <Snackbar message={error.message} clearError={clearError} />
   ) : (
     <></>
   );
