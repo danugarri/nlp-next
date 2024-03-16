@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { mdUrl } from '../../../../public/consts/consts';
 
-const MarkdownRenderer = ({ markdownUrl }: { markdownUrl: string }) => {
+const MarkdownRenderer = ({ markdownUrl = mdUrl }: { markdownUrl?: string }) => {
   const [markdown, setMarkdown] = useState('');
 
   useEffect(() => {
     const fetchMarkdown = async () => {
       try {
-        const response = await fetch('/assets/react.md');
+        const response = await fetch(markdownUrl);
         const markdownText = await response.text();
         setMarkdown(markdownText);
       } catch (error) {

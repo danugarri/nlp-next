@@ -15,13 +15,13 @@ const style = {
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
-  padding: '3rem',
+  padding: '6rem',
   wordBreak: 'break-all',
   overflowY: 'scroll',
   maxHeight: '60vh',
 };
 
-export default function BasicModal({ fileContent, updateDisplayPreview }: BasicModalProps) {
+export default function BasicModal({ fileContent = '', updateDisplayPreview }: BasicModalProps) {
   const [open, setOpen] = useState(true);
   const handleClose = () => {
     setOpen(false);
@@ -38,11 +38,11 @@ export default function BasicModal({ fileContent, updateDisplayPreview }: BasicM
       >
         <Box sx={style}>
           {/* {fileContent} */}
-          <ReactMarkdown markdownUrl={''} />
+          <ReactMarkdown />
           <Button
             variant="contained"
             color="error"
-            style={{ position: 'absolute', right: '1px', top: '2px' }}
+            style={{ position: 'absolute', right: '20px', top: '20px' }}
             onClick={handleClose}
           >
             X
