@@ -1,10 +1,8 @@
 import fs from 'fs/promises';
+import { fileName, mainRoute } from '../../public/consts/consts';
 
 export default async function fileReader() {
   try {
-    const mainRoute = './public/assets/';
-    const fileName = 'roles.md';
-
     const content = await fs.readFile(`${mainRoute}${fileName}`, 'utf-8');
     return content;
   } catch (error) {

@@ -16,7 +16,7 @@ const SearchForm = ({ handleSubmit, handleChange, updateDisplayPreview, query }:
 
   return (
     <form onSubmit={handleSubmit} className={styles['search-form-container']}>
-      <label htmlFor="nlp-input">Ask a question</label>
+      <label htmlFor="nlp-input">Ask a question about React 19</label>
       <textarea
         ref={textAreaRef}
         onKeyDown={handleKeyDown}

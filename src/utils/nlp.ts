@@ -1,14 +1,13 @@
 import { Document, VectorStoreIndex } from 'llamaindex';
 import fs from 'fs/promises';
+import { fileName, mainRoute } from '../../public/consts/consts';
 
 async function processNaturalLanguageQuery(query: string) {
   // Defined sample document to read
-  const mainRoute = './public/assets/';
-  const fileName = 'roles.md';
-  const markdownContent = await fs.readFile(`${mainRoute}${fileName}`, 'utf-8');
+  const fileContent = await fs.readFile(`${mainRoute}${fileName}`, 'utf-8');
 
   // Create a document from the data
-  const document = new Document({ text: markdownContent });
+  const document = new Document({ text: fileContent });
 
   // Split the text and create embeddings. Store them in a VectorStoreIndex
   const index = await VectorStoreIndex.fromDocuments([document]);
