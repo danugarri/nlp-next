@@ -1,5 +1,5 @@
 import fs from 'fs/promises';
-import { fileName, mainRoute } from '../../public/consts/consts';
+import { fileName, mainRoute } from '../../public/consts';
 
 export default async function fileReader() {
   try {

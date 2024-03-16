@@ -1,4 +1,4 @@
-import { mdUrl } from '../../public/consts/consts';
+import { mdUrl } from '../../public/consts';
 
 export default async function mdFetcher() {
   try {

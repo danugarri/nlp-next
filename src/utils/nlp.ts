@@ -1,6 +1,6 @@
 import { Document, VectorStoreIndex } from 'llamaindex';
 import fs from 'fs/promises';
-import { fileName, mainRoute } from '../../public/consts/consts';
+import { fileName, mainRoute } from '../../public/consts';
 
 async function processNaturalLanguageQuery(query: string) {
   // Defined sample document to read
