@@ -3,9 +3,9 @@ import { mdUrl } from '../../public/consts';
 
 export default async function mdFetcher() {
   try {
-    const response = await fetch('/hola');
+    const response = await fetch(mdUrl);
     if (response.status === 200) {
-      const markdownText: string = await response.json();
+      const markdownText: string = await response.text();
 
       return markdownText;
     } else {

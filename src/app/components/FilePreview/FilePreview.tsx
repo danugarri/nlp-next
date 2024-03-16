@@ -23,8 +23,10 @@ const FilePreview = ({
         }
       }
     };
-    updateFileContent();
-  }, []);
+    if (displayPreview) {
+      if (!fileContent) updateFileContent();
+    }
+  }, [displayPreview, fileContent]);
 
   return displayPreview ? (
     fileContent ? (
