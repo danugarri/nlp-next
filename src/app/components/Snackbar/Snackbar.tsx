@@ -1,5 +1,4 @@
 import React, { SyntheticEvent, useEffect, useState } from 'react';
-import Button from '@mui/material/Button';
 import MuiSnackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import { SnackbarProps } from './snackbar.types';
