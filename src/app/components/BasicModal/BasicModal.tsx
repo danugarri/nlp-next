@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import { BasicModalProps } from './basicModal.types';
+import ReactMarkdown from '../ReactMarkdown/ReactMarkdown';
 
 const style = {
   position: 'absolute',
@@ -36,7 +37,8 @@ export default function BasicModal({ fileContent, updateDisplayPreview }: BasicM
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          {fileContent}
+          {/* {fileContent} */}
+          <ReactMarkdown markdownUrl={''} />
           <Button
             variant="contained"
             color="error"
