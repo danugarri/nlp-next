@@ -8,24 +8,30 @@ const FilePreview = ({
   displayPreview,
   updateDisplayPreview,
 }: DisplayPreviewProps) => {
-  const [fileContent, setFileContent] = useState<string>('');
+  const [fileContent, setFileContent] = useState<string>();
+  const [error, setError] = useState<FetchingError>();
   useEffect(() => {
     const updateFileContent = async () => {
       try {
         const content = await mdFetcher();
         setFileContent(content);
       } catch (e) {
-        if (e instanceof FetchingError) setFileContent(e.message);
+        if (e instanceof FetchingError) {
+          // setFileContent(e.message);
+          setError(e);
+        }
       }
     };
     updateFileContent();
   }, []);
 
-  return displayPreview ? (
+  return displayPreview && fileContent ? (
     <BasicModal
       fileContent={fileContent}
       updateDisplayPreview={updateDisplayPreview}
     />
+  ) : error ? (
+    <>{error.message} </>
   ) : (
     <></>
   );
