@@ -108,3 +108,44 @@ React 19 is here to make building websites and apps a lot easier and better. Wit
 It also brings in features that make apps run smoother and load faster, which is great for both users and search engines. Plus, React 19 works well with web components, so you can use React in more ways than before.
 
 If you already have an app and want to upgrade to React 19, don't worry. It's pretty straight forward if you follow a step-by-step plan. Using tools like codemods and Strict Mode, and doing lots of
+
+# React 19 Features Overview
+
+React 18 was announced in March 2022 and brought along many exciting features. Now, with React 19 on the horizon, let's explore the enhancements and additions it brings.
+
+## Big Changes/Features
+
+### React Compiler
+
+In previous versions of React, manual memoization was often necessary to prevent excessive re-renders when state changes occurred. However, this approach could lead to messy code and potential pitfalls. React acknowledges this compromise and aims to address it with the introduction of the React compiler.
+
+The React compiler aims to optimize rendering by intelligently determining which parts of the component tree need to be updated when state changes occur. Instagram has already adopted this technology in its production environment. The advantage of the React compiler lies in its ability to accurately render components according to JavaScript and React rules, eliminating unnecessary re-renders and improving performance.
+
+### Actions
+
+React 19 extends Server Actions to include client-only applications. Additionally, APIs have been expanded to support data handling in client-only apps. But what exactly are Actions?
+
+According to the React documentation, Actions allow you to pass functions to DOM elements, functioning synchronously and asynchronously. These actions can also be defined on the client side.
+
+Moreover, React 19 introduces two new hooks: `useFormStatus` and `useFormState`. The former provides information about the status of the last submitted form, while the latter updates the state based on form action results. Both hooks are currently available in React Canary.
+
+Furthermore, React 19 introduces the `useOptimistic` hook, which displays a different state even while an asynchronous action is in progress.
+
+### React Canaries
+
+Introducing React Canary – a remarkable innovation by React.
+
+With React Canary, users can test new features even during the design phase, allowing for early adoption of upcoming functionalities without waiting for the next React version release. This approach fosters community involvement in feature finalization and decision-making processes. To participate in shaping React's future, keep an eye on the React Labs Blog Series. Notably, React Canary already includes features like React Server Component, Asset Loading, Document Metadata, and Actions.
+
+## Additional Features in React 19
+
+- **Directives**:
+  Introducing `useClient` and `useServer` directives for writing reusable components.
+
+- **Built-in Support**:
+  React 19 offers built-in support for rendering `<title>`, `<meta>`, and `<link>` tags, ensuring consistent behavior across different environments.
+
+- **Resource Loading APIs**:
+  Suspense is now integrated with resources such as stylesheets, fonts, and scripts, enhancing resource loading capabilities.
+
+In summary, React 19 introduces directives, built-in support for various tags, two new hooks, automatic rendering optimization, and React Canaries, promising exciting developments for React developers.
