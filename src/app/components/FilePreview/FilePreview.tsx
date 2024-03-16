@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { DisplayPreviewProps } from './filePreview.types';
-import { getFilePreview } from '@/app/services/filePreview';
 import BasicModal from '../BasicModal';
+import { getMDFilePreview } from '@/app/services/getMdFilePreview';
 
 const FilePreview = ({ displayPreview, updateDisplayPreview }: DisplayPreviewProps) => {
   const [fileContent, setFileContent] = useState<string>('');
   useEffect(() => {
     const updateFileContent = async () => {
       try {
-        const content = await getFilePreview();
+        const content = await getMDFilePreview();
         setFileContent(content.result);
       } catch (e) {
         throw new Error('Error when getting preview');

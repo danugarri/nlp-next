@@ -20,7 +20,6 @@ const style = {
   wordBreak: 'break-all',
   overflowY: 'scroll',
   maxHeight: '60vh',
-  // backgroundIimage: "url('/assets/react19.jpeg')",
 };
 
 export default function BasicModal({ fileContent = '', updateDisplayPreview }: BasicModalProps) {
@@ -39,8 +38,7 @@ export default function BasicModal({ fileContent = '', updateDisplayPreview }: B
         aria-describedby="modal-modal-description"
       >
         <Box sx={style} className={styles['modal-container']}>
-          {/* {fileContent} */}
-          <ReactMarkdown />
+          <ReactMarkdown markdownUrl={fileContent} />
           <Button
             variant="contained"
             color="error"
