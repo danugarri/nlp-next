@@ -16,7 +16,7 @@ export default function Home() {
     const value = e.target.value;
     setQuery(value);
   };
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement> | React.KeyboardEvent<HTMLTextAreaElement>) => {
     e.preventDefault();
     setIsQuerying(true);
     try {

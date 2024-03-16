@@ -8,12 +8,18 @@ const SearchForm = ({ handleSubmit, handleChange, updateDisplayPreview, query }:
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   useAutosizeTextArea(textAreaRef.current, query);
   const enableQuery = query.length > 2;
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (event.key === 'Enter') {
+      handleSubmit(event);
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit} className={styles['search-form-container']}>
       <label htmlFor="nlp-input">Ask a question</label>
       <textarea
         ref={textAreaRef}
+        onKeyDown={handleKeyDown}
         onChange={handleChange}
         value={query}
         className={styles['search-form-input-container']}
