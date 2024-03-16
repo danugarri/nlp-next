@@ -16,8 +16,11 @@ const SearchForm = ({ handleSubmit, handleChange, updateDisplayPreview, query }:
 
   return (
     <form onSubmit={handleSubmit} className={styles['search-form-container']}>
-      <label htmlFor="nlp-input">Ask a question about React 19</label>
+      <label htmlFor="nlp-input" className={styles['search-form-nlp-input']}>
+        Ask a question about React 19
+      </label>
       <textarea
+        id="search-form-text"
         ref={textAreaRef}
         onKeyDown={handleKeyDown}
         onChange={handleChange}
@@ -27,6 +30,7 @@ const SearchForm = ({ handleSubmit, handleChange, updateDisplayPreview, query }:
       <section className={styles['search-form-buttons']}>
         <input disabled={!enableQuery} type="submit" value="Send" className={styles['search-form-submit']} />
         <input
+          id="nlp-input"
           onClick={updateDisplayPreview}
           type="button"
           value="View file"
