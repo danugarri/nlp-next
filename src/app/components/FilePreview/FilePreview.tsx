@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { DisplayPreviewProps } from './filePreview.types';
 import BasicModal from '../BasicModal';
-import { getMDFilePreview } from '@/app/services/getMdFilePreview';
 import mdFetcher from '@/utils/mdFetcher';
+import { FetchingError } from '@/app/services/errors';
 
-const FilePreview = ({ displayPreview, updateDisplayPreview }: DisplayPreviewProps) => {
+const FilePreview = ({
+  displayPreview,
+  updateDisplayPreview,
+}: DisplayPreviewProps) => {
   const [fileContent, setFileContent] = useState<string>('');
   useEffect(() => {
     const updateFileContent = async () => {
@@ -12,14 +15,20 @@ const FilePreview = ({ displayPreview, updateDisplayPreview }: DisplayPreviewPro
         const content = await mdFetcher();
         setFileContent(content);
       } catch (e) {
-        setFileContent('');
-        throw new Error('Error when getting preview');
+        if (e instanceof FetchingError) setFileContent(e.message);
       }
     };
     updateFileContent();
   }, []);
 
-  return displayPreview ? <BasicModal fileContent={fileContent} updateDisplayPreview={updateDisplayPreview} /> : <></>;
+  return displayPreview ? (
+    <BasicModal
+      fileContent={fileContent}
+      updateDisplayPreview={updateDisplayPreview}
+    />
+  ) : (
+    <></>
+  );
 };
 
 export default FilePreview;

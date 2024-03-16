@@ -1,13 +1,19 @@
+import { FetchingError } from '@/app/services/errors';
 import { mdUrl } from '../../public/consts';
 
 export default async function mdFetcher() {
   try {
-    const response = await fetch(mdUrl);
-    const markdownText = await response.text();
-    return markdownText;
-  } catch (error) {
-    console.error('Error fetching Markdown:', error);
+    const response = await fetch('/hola');
+    if (response.status === 200) {
+      const markdownText: string = await response.json();
 
-    throw new Error('Error fetching Markdown');
+      return markdownText;
+    } else {
+      throw new FetchingError('Error when fetching Markdown file');
+    }
+  } catch (error) {
+    console.error(error);
+
+    throw error;
   }
 }
