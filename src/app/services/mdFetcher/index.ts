@@ -1,5 +1,5 @@
 import { FetchingError } from '@/app/services/errors';
-import { mdUrl } from '../../public/consts';
+import { mdUrl } from '../../../../public/consts';
 
 export default async function mdFetcher() {
   try {

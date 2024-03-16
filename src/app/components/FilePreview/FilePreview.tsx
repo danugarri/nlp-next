@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { DisplayPreviewProps } from './filePreview.types';
 import BasicModal from '../BasicModal';
-import mdFetcher from '@/utils/mdFetcher';
-import { FetchingError } from '@/app/services/errors';
 import Snackbar from '../Snackbar';
+import mdFetcher from '@/app/services/mdFetcher';
+import { FetchingError } from '@/app/services/errors';
 
 const FilePreview = ({
   displayPreview,
