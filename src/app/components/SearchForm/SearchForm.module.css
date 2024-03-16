@@ -20,11 +20,11 @@
 .search-form-input-container {
   width: 60vw;
   font-size: 1.5rem;
-  height: max-content;
   overflow-y: hidden;
   font-family: serif;
   font-style: italic;
   text-decoration: none;
+  height: 1.875rem;
 }
 
 .search-form-submit {

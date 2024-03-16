@@ -20,7 +20,8 @@ const SearchForm = ({ handleSubmit, handleChange, updateDisplayPreview, query }:
         Ask a question about React 19
       </label>
       <textarea
-        id="search-form-text"
+        id="nlp-input"
+        autoFocus
         ref={textAreaRef}
         onKeyDown={handleKeyDown}
         onChange={handleChange}
@@ -30,7 +31,6 @@ const SearchForm = ({ handleSubmit, handleChange, updateDisplayPreview, query }:
       <section className={styles['search-form-buttons']}>
         <input disabled={!enableQuery} type="submit" value="Send" className={styles['search-form-submit']} />
         <input
-          id="nlp-input"
           onClick={updateDisplayPreview}
           type="button"
           value="View file"
