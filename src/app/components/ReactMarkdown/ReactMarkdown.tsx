@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { mdUrl } from '../../../../public/consts/consts';
+import styles from './ReactMarkdown.module.css';
 
 const MarkdownRenderer = ({ markdownUrl = mdUrl }: { markdownUrl?: string }) => {
   const [markdown, setMarkdown] = useState('');
@@ -26,7 +27,7 @@ const MarkdownRenderer = ({ markdownUrl = mdUrl }: { markdownUrl?: string }) => 
   }, [markdownUrl]);
 
   return (
-    <div className="markdown-container">
+    <div className={styles['markdown-container']}>
       <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
     </div>
   );

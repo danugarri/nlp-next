@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import { BasicModalProps } from './basicModal.types';
 import ReactMarkdown from '../ReactMarkdown/ReactMarkdown';
+import styles from './BasicModal.module.css';
 
 const style = {
   position: 'absolute',
@@ -19,6 +20,7 @@ const style = {
   wordBreak: 'break-all',
   overflowY: 'scroll',
   maxHeight: '60vh',
+  // backgroundIimage: "url('/assets/react19.jpeg')",
 };
 
 export default function BasicModal({ fileContent = '', updateDisplayPreview }: BasicModalProps) {
@@ -36,7 +38,7 @@ export default function BasicModal({ fileContent = '', updateDisplayPreview }: B
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box sx={style} className={styles['modal-container']}>
           {/* {fileContent} */}
           <ReactMarkdown />
           <Button
