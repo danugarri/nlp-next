@@ -4,13 +4,18 @@ Discover the latest features of React 19, from the React Compiler to Server Comp
 
 React 19 introduces a slew of new features aimed at simplifying web development and improving performance. Here's a quick rundown of what's new:
 
-- **The React Compiler:** Converts React code into regular JavaScript, potentially doubling performance.
+- **The React Compiler:**
+  Converts React code into regular JavaScript, potentially doubling performance.
 - **Actions:** Simplify handling data and interactions within web pages.
-- **Server Components:** Render on the server for faster page loads and better SEO.
+- **Server Components:**
+  Render on the server for faster page loads and better SEO.
 - **Asset Loading:** Background loading of assets for smoother page transitions.
-- **Document Metadata:** Easy SEO enhancements with the `<DocumentHead>` component.
-- **Web Components:** Improved compatibility for more flexible development.
-- **Enhanced Hooks:** More control over component lifecycle and state.
+- **Document Metadata:**
+  Easy SEO enhancements with the `<DocumentHead>` component.
+- **Web Components:**
+  Improved compatibility for more flexible development.
+- **Enhanced Hooks:**
+  More control over component lifecycle and state.
 
 React 19 makes web development faster, more efficient, and less complicated, from coding to deployment. Upgrading involves assessing your current app, implementing changes gradually, leveraging tools like codemods, testing thoroughly, and using Strict Mode to ensure compatibility. The effort pays off with better performance and easier maintenance.
 
@@ -52,10 +57,21 @@ Overall, React 19 brings a lot of improvements that make building websites with 
 
 React 19 is showing us some pretty cool stuff that developers can use to make websites faster, handle more users, and just work better overall. Here are a few examples of how its new features are making a real difference:
 
-- **Faster Time-to-Interactive with Concurrent Rendering:** A big online store switched to React 19 and used its new way of rendering pages to make their site 42% quicker to use. This means pages are ready to interact with faster, keeping visitors happy and sticking around longer.
-- **Improved SEO with Automatic SSR:** An online magazine started using Server Components, which let their pages be prepared on the server first. This made it easier for search engines to understand their content, boosting their spot in search results by 19% in two months.
-- **Smoother UX with Suspense:** A tech company tried out Suspense, a feature that lets you show something on the screen while waiting for the rest of the data to load. This got rid of annoying loading icons, making the site feel smoother when moving from page to page.
-- **Easier Global State Management:** A new financial tech company used React 19's updated tools for managing data across the whole app. They managed to cut down on unnecessary code by 62% and got new features out the door 47% faster. This is all thanks to React 19 making it easier to handle data.
+- **Faster Time-to-Interactive with Concurrent Rendering:**
+
+  A big online store switched to React 19 and used its new way of rendering pages to make their site 42% quicker to use. This means pages are ready to interact with faster, keeping visitors happy and sticking around longer.
+
+- **Improved SEO with Automatic SSR:**
+
+  An online magazine started using Server Components, which let their pages be prepared on the server first. This made it easier for search engines to understand their content, boosting their spot in search results by 19% in two months.
+
+- **Smoother UX with Suspense:**
+
+  A tech company tried out Suspense, a feature that lets you show something on the screen while waiting for the rest of the data to load. This got rid of annoying loading icons, making the site feel smoother when moving from page to page.
+
+- **Easier Global State Management:**
+
+  A new financial tech company used React 19's updated tools for managing data across the whole app. They managed to cut down on unnecessary code by 62% and got new features out the door 47% faster. This is all thanks to React 19 making it easier to handle data.
 
 As these stories show, React 19 is helping developers make better websites faster. Whether it's making the site faster, easier to find on Google, nicer to use, or simpler to code for, React 19 is making a big impact. As more people start using it, we'll likely see even more great results from the latest in React.
 

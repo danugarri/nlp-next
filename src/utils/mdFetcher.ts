@@ -1,4 +1,5 @@
 import { mdUrl } from '../../public/consts/consts';
+
 export default async function mdFetcher() {
   try {
     const response = await fetch(mdUrl);
@@ -6,5 +7,7 @@ export default async function mdFetcher() {
     return markdownText;
   } catch (error) {
     console.error('Error fetching Markdown:', error);
+
+    throw new Error('Error fetching Markdown');
   }
 }

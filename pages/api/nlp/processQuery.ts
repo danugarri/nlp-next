@@ -6,7 +6,6 @@ async function processQuery(req: NextApiRequest, res: NextApiResponse) {
     const { query } = req.body;
     const result = await processNaturalLanguageQuery(query);
     res.status(200).json({ result });
-    res.send({ result });
   } else {
     res.setHeader('Allow', ['POST']);
     res.status(405).end(`Method ${req.method} Not Allowed`);
