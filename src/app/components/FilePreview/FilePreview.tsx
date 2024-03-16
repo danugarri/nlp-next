@@ -20,13 +20,14 @@ const FilePreview = ({
       } catch (e) {
         if (e instanceof FetchingError) {
           setError(e);
+          updateDisplayPreview();
         }
       }
     };
     if (displayPreview) {
       if (!fileContent) updateFileContent();
     }
-  }, [displayPreview, fileContent]);
+  }, [displayPreview, fileContent, updateDisplayPreview]);
 
   return displayPreview ? (
     fileContent ? (

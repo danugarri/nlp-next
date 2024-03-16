@@ -1,6 +1,6 @@
 'use client';
 import SearchForm from '@/app/components/SearchForm';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { getProcessedNlpQuery } from './services/nlp';
 import FeedBack from './components/FeedBack/FeedBack';
 import FilePreview from './components/FilePreview/';
@@ -16,7 +16,11 @@ export default function Home() {
     const value = e.target.value;
     setQuery(value);
   };
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement> | React.KeyboardEvent<HTMLTextAreaElement>) => {
+  const handleSubmit = async (
+    e:
+      | React.FormEvent<HTMLFormElement>
+      | React.KeyboardEvent<HTMLTextAreaElement>
+  ) => {
     e.preventDefault();
     setIsQuerying(true);
     try {
@@ -32,7 +36,10 @@ export default function Home() {
     setQuery('');
     setQueryResponse('');
   };
-  const updateDisplayPreview = () => setDisplayPreview(!displayPreview);
+  const updateDisplayPreview = useCallback(
+    () => setDisplayPreview(!displayPreview),
+    [displayPreview]
+  );
 
   return (
     <>
@@ -42,8 +49,15 @@ export default function Home() {
         query={query}
         updateDisplayPreview={updateDisplayPreview}
       />
-      {isQuerying ? <Spinner /> : <FeedBack queryResponse={queryResponse} clearQuery={clearQuery} />}
-      <FilePreview displayPreview={displayPreview} updateDisplayPreview={updateDisplayPreview} />
+      {isQuerying ? (
+        <Spinner />
+      ) : (
+        <FeedBack queryResponse={queryResponse} clearQuery={clearQuery} />
+      )}
+      <FilePreview
+        displayPreview={displayPreview}
+        updateDisplayPreview={updateDisplayPreview}
+      />
     </>
   );
 }
