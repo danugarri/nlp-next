@@ -1,26 +1,35 @@
 import { Document, VectorStoreIndex } from 'llamaindex';
-import fs from 'fs/promises';
-import { fileName, mainRoute } from '../../public/consts';
+import fileReader from './fileReader';
+import { FileReaderError, llamaindexError } from '@/app/services/errors';
 
 async function processNaturalLanguageQuery(query: string) {
-  // Defined sample document to read
-  const fileContent = await fs.readFile(`${mainRoute}${fileName}`, 'utf-8');
+  try {
+    // Defined sample document to read
+    const fileContent = await fileReader();
 
-  // Create a document from the data
-  const document = new Document({ text: fileContent });
+    // Create a document from the data
+    const document = new Document({ text: fileContent });
 
-  // Split the text and create embeddings. Store them in a VectorStoreIndex
-  const index = await VectorStoreIndex.fromDocuments([document]);
+    // Split the text and create embeddings. Store them in a VectorStoreIndex
+    const index = await VectorStoreIndex.fromDocuments([document]);
 
-  // Query the index
-  const queryEngine = index.asQueryEngine();
-  const response = await queryEngine.query({
-    query,
-  });
+    // Query the index
+    const queryEngine = index.asQueryEngine();
+    const response = await queryEngine.query({
+      query,
+    });
 
-  // Output the response
-  console.log(response.toString());
-  return response.toString();
+    // Output the response
+    console.log(response.toString());
+    return response.toString();
+  } catch (error) {
+    if (error instanceof FileReaderError) {
+      throw new FileReaderError('Error when reading the react.md file');
+    } else if (error instanceof llamaindexError) {
+      throw new llamaindexError('Error with Llamaindex');
+    } else {
+      throw new Error('Unhandled error');
+    }
+  }
 }
-
 export default processNaturalLanguageQuery;
