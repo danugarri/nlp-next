@@ -1,6 +1,6 @@
 import { Document, VectorStoreIndex } from 'llamaindex';
 import fileReader from './fileReader';
-import { FileReaderError } from '@/app/services/errors';
+import { FileReaderError, llamaindexError } from '@/app/services/errors';
 
 async function processNaturalLanguageQuery(query: string) {
   try {
@@ -24,10 +24,11 @@ async function processNaturalLanguageQuery(query: string) {
     return response.toString();
   } catch (error) {
     if (error instanceof FileReaderError) {
-      console.error(error);
+      console.log(error);
+      throw { name: error.name, message: error.message };
     } else {
       console.log(error);
-      throw error;
+      throw new llamaindexError('Internal Llamaindex error');
     }
   }
 }

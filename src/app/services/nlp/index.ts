@@ -1,12 +1,24 @@
-export const getProcessedNlpQuery = async (query: string): Promise<{ result: string }> => {
-  const response = await fetch('/api/nlp/processQuery', {
-    method: 'POST',
-    body: JSON.stringify({ query }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-  const data = await response.json();
+import { FetchingError } from '../errors';
 
-  return data;
+export const getProcessedNlpQuery = async (
+  query: string
+): Promise<{ result: string }> => {
+  try {
+    const response = await fetch('/api/nlp/processQuery', {
+      method: 'POST',
+      body: JSON.stringify({ query }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    if (response.status === 200) {
+      const data = await response.json();
+      return data;
+    } else {
+      throw new FetchingError('Error when fetching nlp response');
+    }
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
 };

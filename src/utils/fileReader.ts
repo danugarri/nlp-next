@@ -7,7 +7,6 @@ export default async function fileReader() {
     const content = await fs.readFile(`${mainRoute}${fileName}`, 'utf-8');
     return content;
   } catch (error) {
-    console.error('Error reading file:', error);
     throw new FileReaderError('Error when reading the react.md file');
   }
 }
