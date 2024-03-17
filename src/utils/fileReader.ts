@@ -1,5 +1,6 @@
 import fs from 'fs/promises';
 import { fileName, mainRoute } from '../../public/consts';
+import { FileReaderError } from '@/app/services/errors';
 
 export default async function fileReader() {
   try {
@@ -7,5 +8,6 @@ export default async function fileReader() {
     return content;
   } catch (error) {
     console.error('Error reading file:', error);
+    throw new FileReaderError('Error when reading the react.md file');
   }
 }

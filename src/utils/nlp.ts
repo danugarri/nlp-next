@@ -1,6 +1,6 @@
 import { Document, VectorStoreIndex } from 'llamaindex';
 import fileReader from './fileReader';
-import { FileReaderError, llamaindexError } from '@/app/services/errors';
+import { FileReaderError } from '@/app/services/errors';
 
 async function processNaturalLanguageQuery(query: string) {
   try {
@@ -24,11 +24,10 @@ async function processNaturalLanguageQuery(query: string) {
     return response.toString();
   } catch (error) {
     if (error instanceof FileReaderError) {
-      throw new FileReaderError('Error when reading the react.md file');
-    } else if (error instanceof llamaindexError) {
-      throw new llamaindexError('Error with Llamaindex');
+      console.error(error);
     } else {
-      throw new Error('Unhandled error');
+      console.log(error);
+      throw error;
     }
   }
 }
