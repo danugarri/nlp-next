@@ -5,6 +5,7 @@ import { FileReaderError } from '@/app/services/errors';
 
 export default async function fileReader() {
   try {
+    // production tests
     const filePath = path.join(process.cwd(), mainRoute, fileName);
     const content = await fs.readFile(filePath, 'utf-8');
     return content;
